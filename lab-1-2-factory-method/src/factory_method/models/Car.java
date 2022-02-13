@@ -111,6 +111,14 @@ public class Car implements Vehicle {
         return this.models.length;
     }
 
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        var clone = (Car)super.clone();
+        clone.carBrand = this.carBrand;
+        clone.models = models.clone();
+        return clone;
+    }
+
     private class Model {
         private String name;
         private double price;
@@ -128,6 +136,14 @@ public class Car implements Vehicle {
 
         public void setName(String name) {
             this.name = name;
+        }
+
+        @Override
+        public Object clone() throws CloneNotSupportedException {
+            var clone = (Model)super.clone();
+            clone.name = this.name;
+            clone.price = this.price;
+            return clone;
         }
     }
 }

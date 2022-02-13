@@ -6,8 +6,6 @@ import factory_method.models.Vehicle;
 import factory_method.untils.VehicleHelper;
 
 public class MainFactoryMethod {
-    private static final String TERMINATOR_STRING = "--------------------";
-
     public static void main(String[] args) {
         try {
             Vehicle carVehicle = VehicleHelper.createInstance("Super Auto Brand", 4);
@@ -17,6 +15,11 @@ public class MainFactoryMethod {
             fillVehicle(carVehicle);
             fillVehicle(motoVehicle);
 
+            var carVehicleClone = (Vehicle)carVehicle.clone();
+            carVehicleClone.addModel("----test1", 999);
+            var motoVehicleClone = (Vehicle)motoVehicle.clone();
+            motoVehicleClone.addModel("----test2", 999);
+
             System.out.println("Vehicle 1 Brand: ");
             System.out.println(carVehicle.getVehicleBrand());
             System.out.println("Vehicle 2 Brand: ");
@@ -24,15 +27,20 @@ public class MainFactoryMethod {
 
             System.out.println("Vehicle carVehicle: ");
             printVehicle(carVehicle);
+            System.out.println("Vehicle carVehicle cloned: ");
+            printVehicle(carVehicleClone);
+
             System.out.println("Vehicle motoVehicle: ");
             printVehicle(motoVehicle);
+            System.out.println("Vehicle motoVehicle cloned: ");
+            printVehicle(motoVehicleClone);
 
             System.out.println("Print vehicle using VehicleHelper");
             System.out.println("Auto: ");
             VehicleHelper.printModelsInPrintStream(carVehicle, System.out);
             System.out.println("Moto: ");
             VehicleHelper.printModelsInPrintStream(motoVehicle, System.out);
-        } catch (DuplicateModelNameException | ModelPriceOutOfBoundsException e) {
+        } catch (CloneNotSupportedException | DuplicateModelNameException | ModelPriceOutOfBoundsException e) {
             System.out.println(e.getMessage());
         }
     }

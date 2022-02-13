@@ -2,7 +2,7 @@ package factory_method.models;
 
 import factory_method.exeptions.*;
 
-public interface Vehicle {
+public interface Vehicle extends Cloneable {
 
     String getVehicleBrand();
 
@@ -23,4 +23,6 @@ public interface Vehicle {
     void deleteModel(String name) throws NoSuchModelNameException;
 
     int getModelsSize();
+
+    Object clone() throws CloneNotSupportedException;
 }

@@ -157,7 +157,14 @@ public class Motorcycle implements Vehicle {
         return this.size;
     }
 
-    private class Model {
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        var clone = (Motorcycle)super.clone();
+        clone.head.next = (Model)head.next.clone();
+        return clone;
+    }
+
+    private class Model implements Cloneable {
 
         private String name = null;
         private double price = Double.NaN;
@@ -202,6 +209,21 @@ public class Motorcycle implements Vehicle {
 
         public void setNext(Model next) {
             this.next = next;
+        }
+
+        @Override
+        public Object clone() throws CloneNotSupportedException {
+            System.out.println("--------------------------clone");
+            var clone = (Model)super.clone();
+            Model currentModel = clone;
+            while (currentModel.next != null && currentModel.next != clone) {
+                var next =  currentModel.next;
+                currentModel.next = new Model(next.name, next.price);
+                clone.next = next.next;
+                clone.prev = currentModel;
+                currentModel = currentModel.next;
+            }
+            return clone;
         }
     }
 }
