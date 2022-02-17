@@ -38,8 +38,12 @@ public class MainFactoryMethod {
             System.out.println("Print vehicle using VehicleHelper");
             System.out.println("Auto: ");
             VehicleHelper.printModelsInPrintStream(carVehicle, System.out);
+            System.out.println("Auto cloned: ");
+            VehicleHelper.printModelsInPrintStream(carVehicleClone, System.out);
             System.out.println("Moto: ");
             VehicleHelper.printModelsInPrintStream(motoVehicle, System.out);
+            System.out.println("Moto cloned: ");
+            VehicleHelper.printModelsInPrintStream(motoVehicleClone, System.out);
         } catch (CloneNotSupportedException | DuplicateModelNameException | ModelPriceOutOfBoundsException e) {
             System.out.println(e.getMessage());
         }

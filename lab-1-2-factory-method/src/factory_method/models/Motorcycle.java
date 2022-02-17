@@ -6,7 +6,7 @@ public class Motorcycle implements Vehicle {
 
     private String motoBrand;
     private int size;
-    private final Model head = new Model();
+    private Model head = new Model();
 
     {
         head.prev = head;
@@ -160,7 +160,17 @@ public class Motorcycle implements Vehicle {
     @Override
     public Object clone() throws CloneNotSupportedException {
         var clone = (Motorcycle)super.clone();
-        clone.head.next = (Model)head.next.clone();
+        clone.head = (Model)head.clone();
+
+        Model currentModel = clone.head;
+        while (currentModel.next != head) {
+            var cloneModel = (Model)currentModel.next.clone();
+            cloneModel.prev = currentModel;
+            currentModel.next = cloneModel;
+            currentModel = currentModel.next;
+        }
+        currentModel.next = clone.head;
+        clone.head.prev  = currentModel;
         return clone;
     }
 
@@ -213,16 +223,9 @@ public class Motorcycle implements Vehicle {
 
         @Override
         public Object clone() throws CloneNotSupportedException {
-            System.out.println("--------------------------clone");
             var clone = (Model)super.clone();
-            Model currentModel = clone;
-            while (currentModel.next != null && currentModel.next != clone) {
-                var next =  currentModel.next;
-                currentModel.next = new Model(next.name, next.price);
-                clone.next = next.next;
-                clone.prev = currentModel;
-                currentModel = currentModel.next;
-            }
+            clone.next = next;
+            clone.prev = prev;
             return clone;
         }
     }
