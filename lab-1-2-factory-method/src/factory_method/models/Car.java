@@ -114,12 +114,15 @@ public class Car implements Vehicle {
     @Override
     public Object clone() throws CloneNotSupportedException {
         var clone = (Car)super.clone();
-        clone.carBrand = this.carBrand;
-        clone.models = models.clone();
+        var clonedModels =  new Model[models.length];
+        for (int i = 0; i < models.length; i++) {
+            clonedModels[i] = (Model) models[i].clone();
+        }
+        clone.models = clonedModels;
         return clone;
     }
 
-    private class Model {
+    private class Model implements Cloneable {
         private String name;
         private double price;
 

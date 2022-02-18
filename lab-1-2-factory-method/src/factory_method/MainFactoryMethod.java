@@ -16,9 +16,9 @@ public class MainFactoryMethod {
             fillVehicle(motoVehicle);
 
             var carVehicleClone = (Vehicle)carVehicle.clone();
-            carVehicleClone.addModel("----test1", 999);
+            carVehicleClone.setModelPriceByName("Yamaha", 999);
             var motoVehicleClone = (Vehicle)motoVehicle.clone();
-            motoVehicleClone.addModel("----test2", 999);
+            motoVehicleClone.setModelPriceByName("BMW", 999);
 
             System.out.println("Vehicle 1 Brand: ");
             System.out.println(carVehicle.getVehicleBrand());
@@ -44,7 +44,7 @@ public class MainFactoryMethod {
             VehicleHelper.printModelsInPrintStream(motoVehicle, System.out);
             System.out.println("Moto cloned: ");
             VehicleHelper.printModelsInPrintStream(motoVehicleClone, System.out);
-        } catch (CloneNotSupportedException | DuplicateModelNameException | ModelPriceOutOfBoundsException e) {
+        } catch (CloneNotSupportedException | DuplicateModelNameException | ModelPriceOutOfBoundsException | NoSuchModelNameException e) {
             System.out.println(e.getMessage());
         }
     }

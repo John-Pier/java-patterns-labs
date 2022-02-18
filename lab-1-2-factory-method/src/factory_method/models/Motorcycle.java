@@ -142,7 +142,7 @@ public class Motorcycle implements Vehicle {
         if (price < 0) {
             throw new ModelPriceOutOfBoundsException("Model Price Out Of Bounds!");
         }
-        Model lastModel = head.prev;
+        Model lastModel = head;
         while (lastModel.next != head) {
             if (lastModel.next.name.equals(name)) {
                 lastModel.next.setPrice(price);
@@ -161,16 +161,18 @@ public class Motorcycle implements Vehicle {
     public Object clone() throws CloneNotSupportedException {
         var clone = (Motorcycle)super.clone();
         clone.head = (Model)head.clone();
+        clone.head.prev = clone.head;
+        clone.head.next = clone.head;
 
-        Model currentModel = clone.head;
+        Model currentModel = head;
         while (currentModel.next != head) {
-            var cloneModel = (Model)currentModel.next.clone();
-            cloneModel.prev = currentModel;
-            currentModel.next = cloneModel;
+            try {
+                clone.addModel(currentModel.next.name, currentModel.next.price);
+            } catch (DuplicateModelNameException e) {
+                e.printStackTrace();
+            }
             currentModel = currentModel.next;
         }
-        currentModel.next = clone.head;
-        clone.head.prev  = currentModel;
         return clone;
     }
 
