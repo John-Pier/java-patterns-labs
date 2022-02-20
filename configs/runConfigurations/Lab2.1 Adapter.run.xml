@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Lab2.1 Adapter" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="MainAdapter" />
+    <module name="lab-2-1-adapter" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
