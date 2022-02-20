@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Lab1.2 FactoryMethod" type="Application" factoryName="Application">
+  <configuration default="false" name="Lab1.2 FactoryMethod | Clonable | Decorator" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="factory_method.MainFactoryMethod" />
     <module name="lab-1-2-factory-method" />
     <extension name="coverage">

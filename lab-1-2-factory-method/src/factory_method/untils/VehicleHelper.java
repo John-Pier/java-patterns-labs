@@ -1,7 +1,7 @@
 package factory_method.untils;
 
 import factory_method.fabric.*;
-import factory_method.models.Vehicle;
+import factory_method.models.*;
 
 import java.io.PrintStream;
 import java.util.*;
@@ -38,5 +38,9 @@ public class VehicleHelper {
         for (int i = 0; i < names.length; i++) {
             printStream.println(vehicleName + " [" + (i + 1) + ", name: " + names[i] + ", price: " + prices[i] + "]");
         }
+    }
+
+    public static Vehicle synchronizedVehicle(Vehicle vehicle) {
+       return new SynchronizedVehicle(vehicle);
     }
 }

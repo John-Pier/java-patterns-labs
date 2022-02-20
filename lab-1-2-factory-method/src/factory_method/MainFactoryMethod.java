@@ -44,6 +44,10 @@ public class MainFactoryMethod {
             VehicleHelper.printModelsInPrintStream(motoVehicle, System.out);
             System.out.println("Moto cloned: ");
             VehicleHelper.printModelsInPrintStream(motoVehicleClone, System.out);
+
+            System.out.println("Synchronized Vehicle: ");
+            var synchronizedVehicle = VehicleHelper.synchronizedVehicle(carVehicle);
+            VehicleHelper.printModelsInPrintStream(synchronizedVehicle, System.out);
         } catch (CloneNotSupportedException | DuplicateModelNameException | ModelPriceOutOfBoundsException | NoSuchModelNameException e) {
             System.out.println(e.getMessage());
         }
