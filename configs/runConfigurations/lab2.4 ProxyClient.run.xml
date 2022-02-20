@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="lab2.4 ProxyClient" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="MainProxyClient" />
+    <module name="lab-2-4-client" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
