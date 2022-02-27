@@ -1,8 +1,8 @@
 import java.io.*;
 import java.net.Socket;
 
-public class MultipleProxy {
-    public double multiple(int a, int b) {
+public class MultipleProxy implements Multiple {
+    public double multiple(double a, double b) {
         double result = Double.NaN;
         try (Socket clientSocket = new Socket(Config.SERVER_HOST_NAME, Config.SERVER_PORT)) {
             var inputStream = new DataInputStream(clientSocket.getInputStream());
@@ -13,7 +13,6 @@ public class MultipleProxy {
             outputStream.flush();
 
             result = inputStream.readDouble();
-            System.out.println("Результат работы: " + result);
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
         }
