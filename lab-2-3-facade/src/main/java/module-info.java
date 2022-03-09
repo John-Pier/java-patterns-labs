@@ -5,4 +5,6 @@ module com.johnpier.lab23facade {
 
     opens com.johnpier.lab23facade to javafx.fxml;
     exports com.johnpier.lab23facade;
+    exports com.johnpier.lab23facade.facade;
+    opens com.johnpier.lab23facade.facade to javafx.fxml;
 }
