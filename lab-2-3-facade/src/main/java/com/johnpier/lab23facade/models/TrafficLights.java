@@ -30,7 +30,7 @@ public class TrafficLights {
                 while (isStarted && !thread.isInterrupted()) {
                     synchronized (this) {
                         this.handler.doAction(TrafficLightsActions.TO_GREEN);
-                        wait(this.timeout * 2);
+                        wait(this.timeout);
                         this.handler.doAction(TrafficLightsActions.TO_YELLOW);
                         wait(this.timeout);
                         this.handler.doAction(TrafficLightsActions.TO_RED);

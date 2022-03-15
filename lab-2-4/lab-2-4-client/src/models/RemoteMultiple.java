@@ -1,7 +1,13 @@
+package models;
+
+import configs.Config;
+
 import java.io.*;
 import java.net.Socket;
 
-public class MultipleProxy implements Multiple {
+public class RemoteMultiple implements Multiple {
+
+    @Override
     public double multiple(double a, double b) {
         double result = Double.NaN;
         try (Socket clientSocket = new Socket(Config.SERVER_HOST_NAME, Config.SERVER_PORT)) {
