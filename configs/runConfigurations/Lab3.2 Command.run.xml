@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Lab3.2 Command" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="CommandMain" />
+    <module name="lab-3-2-command" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
