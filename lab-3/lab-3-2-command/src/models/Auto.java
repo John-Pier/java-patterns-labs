@@ -2,11 +2,13 @@ package models;
 
 import factory_method.exeptions.*;
 
+import java.io.OutputStream;
 import java.util.*;
 
 public class Auto {
     private String carBrand;
     private Model[] models;
+    private Command printCommand;
 
     public Auto(String carBrand, int sizeOfModels) {
         this.carBrand = carBrand;
@@ -109,6 +111,16 @@ public class Auto {
 
     public int getModelsSize() {
         return this.models.length;
+    }
+
+    public void print(OutputStream stream) {
+        if (printCommand != null) {
+            printCommand.execute(stream);
+        }
+    }
+
+    public void setPrintCommand(Command command) {
+        printCommand = command;
     }
 
     private class Model implements Cloneable {
