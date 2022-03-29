@@ -12,6 +12,7 @@
       <module fileurl="file://$PROJECT_DIR$/lab-3/lab-3-1-chain-of-responsibility/lab-3-1-chain-of-responsibility.iml" filepath="$PROJECT_DIR$/lab-3/lab-3-1-chain-of-responsibility/lab-3-1-chain-of-responsibility.iml" />
       <module fileurl="file://$PROJECT_DIR$/lab-3/lab-3-2-command/lab-3-2-command.iml" filepath="$PROJECT_DIR$/lab-3/lab-3-2-command/lab-3-2-command.iml" />
       <module fileurl="file://$PROJECT_DIR$/lab-3/lab-3-3-iterator/lab-3-3-iterator.iml" filepath="$PROJECT_DIR$/lab-3/lab-3-3-iterator/lab-3-3-iterator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lab-3/lab-3-4-memento/lab-3-4-memento.iml" filepath="$PROJECT_DIR$/lab-3/lab-3-4-memento/lab-3-4-memento.iml" />
     </modules>
   </component>
 </project>
