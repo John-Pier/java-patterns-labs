@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/lab-2-4/lab-2-4-server/lab-2-4-server.iml" filepath="$PROJECT_DIR$/lab-2-4/lab-2-4-server/lab-2-4-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/lab-3/lab-3-1-chain-of-responsibility/lab-3-1-chain-of-responsibility.iml" filepath="$PROJECT_DIR$/lab-3/lab-3-1-chain-of-responsibility/lab-3-1-chain-of-responsibility.iml" />
       <module fileurl="file://$PROJECT_DIR$/lab-3/lab-3-2-command/lab-3-2-command.iml" filepath="$PROJECT_DIR$/lab-3/lab-3-2-command/lab-3-2-command.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lab-3/lab-3-3-iterator/lab-3-3-iterator.iml" filepath="$PROJECT_DIR$/lab-3/lab-3-3-iterator/lab-3-3-iterator.iml" />
     </modules>
   </component>
 </project>

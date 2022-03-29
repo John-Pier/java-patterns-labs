@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Lab3.3 Iterator" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="IteratorMain" />
+    <module name="lab-3-3-iterator" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
