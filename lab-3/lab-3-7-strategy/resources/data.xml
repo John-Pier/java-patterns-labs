@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE student SYSTEM "student.dtd">
+<student lastname="mihail">
+    <subject title="math" mark="3"/>
+    <subject title="russian" mark="5"/>
+    <subject title="english" mark="3"/>
+    <subject title="biology" mark="4"/>
+    <subject title="informatica" mark="5"/>
+    <average>3.7</average>
+</student>
