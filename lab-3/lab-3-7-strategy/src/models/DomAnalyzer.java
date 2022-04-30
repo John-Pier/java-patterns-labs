@@ -27,7 +27,6 @@ public class DomAnalyzer implements XmAnalyzer {
         }
     }
 
-
     public DomAnalyzer(String path) {
         this.path = path;
     }
