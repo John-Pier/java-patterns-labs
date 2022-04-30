@@ -1,7 +1,7 @@
 package models;
 
-import java.io.OutputStream;
+import java.io.*;
 
 public interface Command {
-    void execute(OutputStream stream);
+    void execute(Writer writer);
 }

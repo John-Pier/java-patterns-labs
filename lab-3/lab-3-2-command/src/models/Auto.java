@@ -2,7 +2,7 @@ package models;
 
 import factory_method.exeptions.*;
 
-import java.io.OutputStream;
+import java.io.*;
 import java.util.*;
 
 public class Auto {
@@ -113,9 +113,9 @@ public class Auto {
         return this.models.length;
     }
 
-    public void print(OutputStream stream) {
+    public void print(Writer writer) {
         if (printCommand != null) {
-            printCommand.execute(stream);
+            printCommand.execute(writer);
         }
     }
 

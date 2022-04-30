@@ -2,8 +2,7 @@ package models;
 
 import factory_method.exeptions.NoSuchModelNameException;
 
-import java.io.OutputStream;
-import java.nio.charset.StandardCharsets;
+import java.io.*;
 import java.util.Arrays;
 
 public class RowCommand implements Command {
@@ -14,10 +13,11 @@ public class RowCommand implements Command {
     }
 
     @Override
-    public void execute(OutputStream stream) {
+    public void execute(Writer writer) {
         try {
-            stream.write(toRowString(auto).getBytes(StandardCharsets.UTF_8));
-            stream.flush();
+            writer.write("\n");
+            writer.write(toRowString(auto));
+            writer.flush();
         } catch (Exception exception) {
             exception.printStackTrace();
         }
@@ -25,9 +25,9 @@ public class RowCommand implements Command {
 
     private String toRowString(Auto auto) {
         StringBuilder builder = new StringBuilder();
-        builder.append("Vehicle brand: ").append(auto.getVehicleBrand()).append("; ");
+        builder.append("Auto brand: ").append(auto.getVehicleBrand()).append("; ");
         var names = auto.getModelNames();
-        builder.append("Vehicle models: [");
+        builder.append("Auto models: [");
         Arrays.stream(names).forEachOrdered(value -> {
             builder.append("{ name: ").append(value);
             try {
