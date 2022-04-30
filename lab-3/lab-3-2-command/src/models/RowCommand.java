@@ -13,7 +13,8 @@ public class RowCommand implements Command {
     }
 
     @Override
-    public void execute(Writer writer) {
+    public void execute() {
+        var writer = auto.getWriter();
         try {
             writer.write("\n");
             writer.write(toRowString(auto));

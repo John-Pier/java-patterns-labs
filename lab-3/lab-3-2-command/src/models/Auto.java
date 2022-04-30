@@ -9,6 +9,7 @@ public class Auto {
     private String carBrand;
     private Model[] models;
     private Command printCommand;
+    private Writer writer;
 
     public Auto(String carBrand, int sizeOfModels) {
         this.carBrand = carBrand;
@@ -115,8 +116,13 @@ public class Auto {
 
     public void print(Writer writer) {
         if (printCommand != null) {
-            printCommand.execute(writer);
+            this.writer = writer;
+            printCommand.execute();
         }
+    }
+
+    public Writer getWriter() {
+        return writer;
     }
 
     public void setPrintCommand(Command command) {
