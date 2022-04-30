@@ -2,7 +2,7 @@ package models;
 
 import java.util.*;
 
-public class Auto implements Iterable<Auto.Model> {
+public class Auto implements Iterable<String> {
     private String carBrand;
     private Model[] models;
 
@@ -109,7 +109,7 @@ public class Auto implements Iterable<Auto.Model> {
         return this.models.length;
     }
 
-    public Iterator<Model> iterator() {
+    public Iterator<String> iterator() {
         return new AutoIterator();
     }
 
@@ -139,7 +139,7 @@ public class Auto implements Iterable<Auto.Model> {
         }
     }
 
-    class AutoIterator implements Iterator<Model> {
+    class AutoIterator implements Iterator<String> {
         private int index = 0;
 
         @Override
@@ -148,8 +148,8 @@ public class Auto implements Iterable<Auto.Model> {
         }
 
         @Override
-        public Model next() {
-            return models[index++];
+        public String next() {
+            return models[index++].toString();
         }
     }
 }
