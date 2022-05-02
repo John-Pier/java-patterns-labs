@@ -1,16 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.johnpier.lab35observer.ObserverController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<AnchorPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.johnpier.lab35observer.ObserverController">
+    <children>
+        <Pane layoutX="-8.0" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #dbf2fa;"
+              AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="0.0">
+            <effect>
+                <Lighting diffuseConstant="1.31" specularConstant="2.0" specularExponent="28.53" surfaceScale="1.03">
+                    <bumpInput>
+                        <Shadow/>
+                    </bumpInput>
+                    <light>
+                        <Light.Distant azimuth="165.0" elevation="131.51"/>
+                    </light>
+                </Lighting>
+            </effect>
+            <children>
+                <Ellipse fill="#c9c3a3" layoutX="250.0" layoutY="250.0" radiusX="152.0" radiusY="194.0" stroke="BLACK"
+                         strokeType="INSIDE"/>
+                <Ellipse fill="DODGERBLUE" layoutX="319.0" layoutY="214.0" radiusX="43.0" radiusY="24.0" stroke="BLACK"
+                         strokeType="INSIDE"/>
+                <Ellipse fill="DODGERBLUE" layoutX="188.0" layoutY="214.0" radiusX="43.0" radiusY="24.0" stroke="BLACK"
+                         strokeType="INSIDE"/>
+                <Circle layoutX="319.0" layoutY="214.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                    <fill>
+                        <LinearGradient cycleMethod="REFLECT" endX="0.9809523809523809" endY="1.0" startX="1.0">
+                            <stops>
+                                <Stop>
+                                    <color>
+                                        <Color/>
+                                    </color>
+                                </Stop>
+                                <Stop offset="1.0">
+                                    <color>
+                                        <Color red="1.0" green="1.0" blue="1.0"/>
+                                    </color>
+                                </Stop>
+                            </stops>
+                        </LinearGradient>
+                    </fill>
+                </Circle>
+                <QuadCurve controlX="-2.0" controlY="-50.0" endX="50.0" fill="DODGERBLUE" layoutX="250.0"
+                           layoutY="347.0" startX="-50.0" startY="6.0" stroke="#675f4a" strokeLineCap="ROUND"
+                           strokeType="INSIDE" strokeWidth="3.0">
+                    <effect>
+                        <InnerShadow choke="0.43" height="28.91" radius="13.955" width="28.91">
+                            <color>
+                                <Color red="0.9800000190734863" green="0.009800000116229057" blue="0.009800000116229057"
+                                       opacity="0.6224783658981323"/>
+                            </color>
+                        </InnerShadow>
+                    </effect>
+                </QuadCurve>
+                <Circle layoutX="188.0" layoutY="214.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                    <fill>
+                        <LinearGradient cycleMethod="REFLECT" endX="0.9809523809523809" endY="1.0" startX="1.0">
+                            <stops>
+                                <Stop>
+                                    <color>
+                                        <Color/>
+                                    </color>
+                                </Stop>
+                                <Stop offset="1.0">
+                                    <color>
+                                        <Color red="1.0" green="1.0" blue="1.0"/>
+                                    </color>
+                                </Stop>
+                            </stops>
+                        </LinearGradient>
+                    </fill>
+                </Circle>
+                <Arc layoutX="249.0" layoutY="70.0" length="270.0" radiusX="140.0" radiusY="49.0" startAngle="-45.0"
+                     stroke="BLACK" strokeType="INSIDE" type="ROUND">
+                    <fill>
+                        <RadialGradient centerX="0.5" centerY="1.0" cycleMethod="REFLECT" focusAngle="-89.56"
+                                        focusDistance="0.03100772236668803" radius="0.9302325581395349">
+                            <stops>
+                                <Stop>
+                                    <color>
+                                        <Color red="0.042589928954839706" blue="0.7400000095367432"/>
+                                    </color>
+                                </Stop>
+                                <Stop offset="1.0">
+                                    <color>
+                                        <Color red="1.0" green="1.0" blue="1.0"/>
+                                    </color>
+                                </Stop>
+                            </stops>
+                        </RadialGradient>
+                    </fill>
+                </Arc>
+                <Polyline fill="#9f8c6d" layoutX="275.0" layoutY="353.0"
+                          points="-44.0, -62.333343505859375, -6.0, -62.333343505859375, -25.0, -96.33334350585938, -44.0, -62.333343505859375"
+                          stroke="#60593a" strokeType="INSIDE" strokeWidth="2.0"/>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>
