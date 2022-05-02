@@ -6,6 +6,15 @@ import javafx.scene.control.Label;
 public class ObserverController {
     private Label welcomeText;
 
-    protected void onHelloButtonClick() {
+    @FXML
+    protected void onEyeClick() {
+    }
+
+    @FXML
+    protected void onNoseClick() {
+    }
+
+    @FXML
+    protected void onLipsClick() {
     }
 }

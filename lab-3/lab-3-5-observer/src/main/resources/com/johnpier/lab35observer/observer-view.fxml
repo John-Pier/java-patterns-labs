@@ -24,10 +24,10 @@
             <children>
                 <Ellipse fill="#c9c3a3" layoutX="250.0" layoutY="250.0" radiusX="152.0" radiusY="194.0" stroke="BLACK"
                          strokeType="INSIDE"/>
-                <Ellipse fill="DODGERBLUE" layoutX="319.0" layoutY="214.0" radiusX="43.0" radiusY="24.0" stroke="BLACK"
-                         strokeType="INSIDE"/>
-                <Ellipse fill="DODGERBLUE" layoutX="188.0" layoutY="214.0" radiusX="43.0" radiusY="24.0" stroke="BLACK"
-                         strokeType="INSIDE"/>
+                <Ellipse fill="DODGERBLUE" layoutX="319.0" layoutY="214.0" onMouseClicked="#onEyeClick" radiusX="43.0"
+                         radiusY="24.0" stroke="BLACK" strokeType="INSIDE"/>
+                <Ellipse fill="DODGERBLUE" layoutX="188.0" layoutY="214.0" onMouseClicked="#onEyeClick" radiusX="43.0"
+                         radiusY="24.0" stroke="BLACK" strokeType="INSIDE"/>
                 <Circle layoutX="319.0" layoutY="214.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
                     <fill>
                         <LinearGradient cycleMethod="REFLECT" endX="0.9809523809523809" endY="1.0" startX="1.0">
@@ -46,18 +46,6 @@
                         </LinearGradient>
                     </fill>
                 </Circle>
-                <QuadCurve controlX="-2.0" controlY="-50.0" endX="50.0" fill="DODGERBLUE" layoutX="250.0"
-                           layoutY="347.0" startX="-50.0" startY="6.0" stroke="#675f4a" strokeLineCap="ROUND"
-                           strokeType="INSIDE" strokeWidth="3.0">
-                    <effect>
-                        <InnerShadow choke="0.43" height="28.91" radius="13.955" width="28.91">
-                            <color>
-                                <Color red="0.9800000190734863" green="0.009800000116229057" blue="0.009800000116229057"
-                                       opacity="0.6224783658981323"/>
-                            </color>
-                        </InnerShadow>
-                    </effect>
-                </QuadCurve>
                 <Circle layoutX="188.0" layoutY="214.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
                     <fill>
                         <LinearGradient cycleMethod="REFLECT" endX="0.9809523809523809" endY="1.0" startX="1.0">
@@ -76,6 +64,18 @@
                         </LinearGradient>
                     </fill>
                 </Circle>
+                <QuadCurve controlX="-2.0" controlY="-50.0" endX="50.0" fill="DODGERBLUE" layoutX="250.0"
+                           layoutY="347.0" onMouseClicked="#onLipsClick" startX="-50.0" startY="6.0" stroke="#675f4a"
+                           strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="3.0">
+                    <effect>
+                        <InnerShadow choke="0.43" height="28.91" radius="13.955" width="28.91">
+                            <color>
+                                <Color red="0.9800000190734863" green="0.009800000116229057" blue="0.009800000116229057"
+                                       opacity="0.6224783658981323"/>
+                            </color>
+                        </InnerShadow>
+                    </effect>
+                </QuadCurve>
                 <Arc layoutX="249.0" layoutY="70.0" length="270.0" radiusX="140.0" radiusY="49.0" startAngle="-45.0"
                      stroke="BLACK" strokeType="INSIDE" type="ROUND">
                     <fill>
@@ -96,7 +96,7 @@
                         </RadialGradient>
                     </fill>
                 </Arc>
-                <Polyline fill="#9f8c6d" layoutX="275.0" layoutY="353.0"
+                <Polyline fill="#9f8c6d" layoutX="275.0" layoutY="353.0" onMouseClicked="#onNoseClick"
                           points="-44.0, -62.333343505859375, -6.0, -62.333343505859375, -25.0, -96.33334350585938, -44.0, -62.333343505859375"
                           stroke="#60593a" strokeType="INSIDE" strokeWidth="2.0"/>
             </children>
