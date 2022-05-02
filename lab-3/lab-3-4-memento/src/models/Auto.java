@@ -1,8 +1,9 @@
 package models;
 
+import java.io.*;
 import java.util.*;
 
-public class Auto {
+public class Auto implements Serializable {
     private String carBrand;
     private Model[] models;
 
@@ -109,13 +110,40 @@ public class Auto {
         return this.models.length;
     }
 
-    public void createMemento() {
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Auto brand: ").append(this.carBrand).append("; ");
+        var models = this.models;
+        builder.append("Auto models: [");
+        Arrays.stream(models).forEachOrdered(value -> {
+            builder.append("{ name: ")
+                    .append(value.name)
+                    .append(", price: ")
+                    .append(value.price)
+                    .append(" }, ");
+        });
+        builder.append("];\n");
+
+        return builder.toString();
     }
 
-    public void setMemento() {
+    public AutoMemento createMemento() {
+        var memento = new AutoMemento();
+        memento.setAuto(this);
+        return memento;
     }
 
-    static class Model {
+    public void setMemento(AutoMemento memento) {
+        var auto = memento.getAuto();
+        if (auto == null) {
+            throw new NullPointerException("Empty memento!");
+        }
+        this.carBrand = auto.carBrand;
+        this.models = auto.models;
+    }
+
+    static class Model implements Serializable {
         private String name;
         private double price;
 
@@ -142,10 +170,31 @@ public class Auto {
     }
 
     public static class AutoMemento {
-        public void setAuto() {
+        private byte[] serializedAuto = null;
+
+        private void setAuto(Auto auto) {
+            var stream = new ByteArrayOutputStream();
+            try (var objectOutputStream = new ObjectOutputStream(stream)) {
+                objectOutputStream.writeObject(auto);
+                objectOutputStream.flush();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            serializedAuto = stream.toByteArray();
         }
 
-        public void getAuto() {
+        private Auto getAuto() {
+            if (serializedAuto == null) {
+                return null;
+            }
+            Auto auto = null;
+
+            try (var objectInputStream = new ObjectInputStream(new ByteArrayInputStream(serializedAuto))) {
+                auto = (Auto) objectInputStream.readObject();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            return auto;
         }
     }
 }

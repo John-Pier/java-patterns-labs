@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Lab3.4 Memento" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="MementoMain" />
+    <module name="lab-3-4-memento" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
