@@ -8,9 +8,8 @@
 <AnchorPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.johnpier.lab35observer.ObserverController">
     <children>
-        <Pane prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #dbf2fa;"
-              AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-              AnchorPane.topAnchor="0.0">
+        <Pane prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #dbf2fa;" AnchorPane.bottomAnchor="0.0"
+              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <effect>
                 <Lighting diffuseConstant="1.31" specularConstant="2.0" specularExponent="28.53" surfaceScale="1.03">
                     <bumpInput>
@@ -24,49 +23,57 @@
             <children>
                 <Ellipse fill="#c9c3a3" layoutX="250.0" layoutY="250.0" radiusX="152.0" radiusY="194.0" stroke="BLACK"
                          strokeType="INSIDE"/>
-                <Ellipse fill="DODGERBLUE" layoutX="319.0" layoutY="214.0" onMouseClicked="#onEyeOneClick"
-                         radiusX="43.0"
-                         radiusY="24.0" stroke="BLACK" strokeType="INSIDE"/>
-                <Ellipse fill="DODGERBLUE" layoutX="188.0" layoutY="214.0" onMouseClicked="#onEyeTwoClick"
-                         radiusX="43.0"
-                         radiusY="24.0" stroke="BLACK" strokeType="INSIDE"/>
-                <Circle layoutX="319.0" layoutY="214.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
-                    <fill>
-                        <LinearGradient cycleMethod="REFLECT" endX="0.9809523809523809" endY="1.0" startX="1.0">
-                            <stops>
-                                <Stop>
-                                    <color>
-                                        <Color/>
-                                    </color>
-                                </Stop>
-                                <Stop offset="1.0">
-                                    <color>
-                                        <Color red="1.0" green="1.0" blue="1.0"/>
-                                    </color>
-                                </Stop>
-                            </stops>
-                        </LinearGradient>
-                    </fill>
-                </Circle>
-                <Circle layoutX="188.0" layoutY="214.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
-                    <fill>
-                        <LinearGradient cycleMethod="REFLECT" endX="0.9809523809523809" endY="1.0" startX="1.0">
-                            <stops>
-                                <Stop>
-                                    <color>
-                                        <Color/>
-                                    </color>
-                                </Stop>
-                                <Stop offset="1.0">
-                                    <color>
-                                        <Color red="1.0" green="1.0" blue="1.0"/>
-                                    </color>
-                                </Stop>
-                            </stops>
-                        </LinearGradient>
-                    </fill>
-                </Circle>
-                <QuadCurve controlX="-2.0" controlY="-50.0" endX="50.0" fill="DODGERBLUE" layoutX="250.0" fx:id="lips"
+                <Pane layoutX="145.0" layoutY="183.0" fx:id="eyeOne" onMouseClicked="#onEyeOneClick" prefHeight="62.0"
+                      prefWidth="86.0">
+                    <children>
+                        <Ellipse fill="DODGERBLUE" layoutX="43.0" layoutY="31.0" radiusX="43.0" radiusY="24.0"
+                                 stroke="BLACK" strokeType="INSIDE"/>
+                        <Circle layoutX="43.0" layoutY="31.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                            <fill>
+                                <LinearGradient cycleMethod="REFLECT" endX="0.9809523809523809" endY="1.0" startX="1.0">
+                                    <stops>
+                                        <Stop>
+                                            <color>
+                                                <Color/>
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="1.0">
+                                            <color>
+                                                <Color red="1.0" green="1.0" blue="1.0"/>
+                                            </color>
+                                        </Stop>
+                                    </stops>
+                                </LinearGradient>
+                            </fill>
+                        </Circle>
+                    </children>
+                </Pane>
+                <Pane layoutX="269.0" layoutY="183.0" fx:id="eyeTwo" onMouseClicked="#onEyeTwoClick" prefHeight="62.0"
+                      prefWidth="86.0">
+                    <children>
+                        <Ellipse fill="DODGERBLUE" layoutX="43.0" layoutY="31.0" radiusX="43.0" radiusY="24.0"
+                                 stroke="BLACK" strokeType="INSIDE"/>
+                        <Circle layoutX="43.0" layoutY="31.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                            <fill>
+                                <LinearGradient cycleMethod="REFLECT" endX="0.9809523809523809" endY="1.0" startX="1.0">
+                                    <stops>
+                                        <Stop>
+                                            <color>
+                                                <Color/>
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="1.0">
+                                            <color>
+                                                <Color red="1.0" green="1.0" blue="1.0"/>
+                                            </color>
+                                        </Stop>
+                                    </stops>
+                                </LinearGradient>
+                            </fill>
+                        </Circle>
+                    </children>
+                </Pane>
+                <QuadCurve fx:id="lips" controlX="-2.0" controlY="-50.0" endX="50.0" fill="DODGERBLUE" layoutX="250.0"
                            layoutY="347.0" onMouseClicked="#onLipsClick" startX="-50.0" startY="6.0" stroke="#675f4a"
                            strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="3.0">
                     <effect>
@@ -101,6 +108,7 @@
                 <Polyline fx:id="nose" fill="#9f8c6d" layoutX="275.0" layoutY="353.0" onMouseClicked="#onNoseClick"
                           points="-44.0, -62.333343505859375, -6.0, -62.333343505859375, -25.0, -96.33334350585938, -44.0, -62.333343505859375"
                           stroke="#60593a" strokeType="INSIDE" strokeWidth="2.0"/>
+
             </children>
         </Pane>
     </children>
