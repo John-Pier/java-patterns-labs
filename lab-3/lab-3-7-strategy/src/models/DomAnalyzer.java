@@ -7,7 +7,7 @@ import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-public class DomAnalyzer implements XmAnalyzer {
+public class DomAnalyzer implements XmlAnalyzer {
     private DocumentBuilder builder;
     private Transformer transformer;
 

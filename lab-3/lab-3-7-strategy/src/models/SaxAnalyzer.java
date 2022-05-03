@@ -1,4 +1,4 @@
 package models;
 
-public class SaxAnalyzer implements XmAnalyzer {
+public class SaxAnalyzer implements XmlAnalyzer {
 }
