@@ -11,7 +11,7 @@ public class StateApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(StateApplication.class.getResource("state-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 500, 500);
         stage.setTitle("State App");
         stage.setScene(scene);
         stage.show();
