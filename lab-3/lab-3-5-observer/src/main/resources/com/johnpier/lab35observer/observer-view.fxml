@@ -8,7 +8,7 @@
 <AnchorPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.johnpier.lab35observer.ObserverController">
     <children>
-        <Pane layoutX="-8.0" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #dbf2fa;"
+        <Pane prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #dbf2fa;"
               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
               AnchorPane.topAnchor="0.0">
             <effect>
@@ -24,9 +24,11 @@
             <children>
                 <Ellipse fill="#c9c3a3" layoutX="250.0" layoutY="250.0" radiusX="152.0" radiusY="194.0" stroke="BLACK"
                          strokeType="INSIDE"/>
-                <Ellipse fill="DODGERBLUE" layoutX="319.0" layoutY="214.0" onMouseClicked="#onEyeClick" radiusX="43.0"
+                <Ellipse fill="DODGERBLUE" layoutX="319.0" layoutY="214.0" onMouseClicked="#onEyeOneClick"
+                         radiusX="43.0"
                          radiusY="24.0" stroke="BLACK" strokeType="INSIDE"/>
-                <Ellipse fill="DODGERBLUE" layoutX="188.0" layoutY="214.0" onMouseClicked="#onEyeClick" radiusX="43.0"
+                <Ellipse fill="DODGERBLUE" layoutX="188.0" layoutY="214.0" onMouseClicked="#onEyeTwoClick"
+                         radiusX="43.0"
                          radiusY="24.0" stroke="BLACK" strokeType="INSIDE"/>
                 <Circle layoutX="319.0" layoutY="214.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
                     <fill>
@@ -64,7 +66,7 @@
                         </LinearGradient>
                     </fill>
                 </Circle>
-                <QuadCurve controlX="-2.0" controlY="-50.0" endX="50.0" fill="DODGERBLUE" layoutX="250.0"
+                <QuadCurve controlX="-2.0" controlY="-50.0" endX="50.0" fill="DODGERBLUE" layoutX="250.0" fx:id="lips"
                            layoutY="347.0" onMouseClicked="#onLipsClick" startX="-50.0" startY="6.0" stroke="#675f4a"
                            strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="3.0">
                     <effect>
@@ -96,7 +98,7 @@
                         </RadialGradient>
                     </fill>
                 </Arc>
-                <Polyline fill="#9f8c6d" layoutX="275.0" layoutY="353.0" onMouseClicked="#onNoseClick"
+                <Polyline fx:id="nose" fill="#9f8c6d" layoutX="275.0" layoutY="353.0" onMouseClicked="#onNoseClick"
                           points="-44.0, -62.333343505859375, -6.0, -62.333343505859375, -25.0, -96.33334350585938, -44.0, -62.333343505859375"
                           stroke="#60593a" strokeType="INSIDE" strokeWidth="2.0"/>
             </children>

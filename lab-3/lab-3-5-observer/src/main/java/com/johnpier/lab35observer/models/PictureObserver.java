@@ -1,5 +1,5 @@
 package com.johnpier.lab35observer.models;
 
 public interface PictureObserver {
-    void update();
+    void update(PictureAction action);
 }

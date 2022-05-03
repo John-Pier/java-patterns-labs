@@ -1,9 +1,7 @@
 package com.johnpier.lab35observer.models;
 
 public interface PictureSubject {
-    void subscribe(PictureObserver observer);
+    PictureSubscription subscribe(PictureObserver observer);
 
-    void unsubscribe();
-
-    void next();
+    void next(PictureAction action);
 }
