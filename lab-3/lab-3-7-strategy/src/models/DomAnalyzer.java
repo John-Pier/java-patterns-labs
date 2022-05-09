@@ -54,7 +54,12 @@ public class DomAnalyzer implements XmlAnalyzer {
         }
     }
 
-    public void fixAverage(String pathToWrite) throws TransformerException {
+    public boolean isNeedFix() {
+        return correctAverage != currentAverage;
+    }
+
+    @Override
+    public void fixAverage(String pathToWrite) throws Exception {
         if (builder == null || transformer == null || students == null || studentAverageNode == null) {
             System.err.println("Error, some instances is null!");
             return;
@@ -96,5 +101,4 @@ public class DomAnalyzer implements XmlAnalyzer {
         }
         return markSum / nodeList.getLength();
     }
-
 }
