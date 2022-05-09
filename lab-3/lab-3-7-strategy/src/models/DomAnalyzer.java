@@ -47,8 +47,6 @@ public class DomAnalyzer implements XmlAnalyzer {
 
             correctAverage = getCorrectAverage(studentSubjects);
             currentAverage = Double.parseDouble(studentAverageNode.getTextContent());
-
-            System.out.println("Correct Average: " + correctAverage + "\nCurrent Average: " + currentAverage);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -68,8 +66,6 @@ public class DomAnalyzer implements XmlAnalyzer {
         if (correctAverage != currentAverage) {
             studentAverageNode.setTextContent(String.valueOf(correctAverage));
         }
-
-        System.out.println("Correct Average: " + correctAverage + "\nCurrent Average: " + currentAverage);
 
         createDocumentWithAverage(pathToWrite);
     }
