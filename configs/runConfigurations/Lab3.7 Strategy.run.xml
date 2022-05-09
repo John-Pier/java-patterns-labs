@@ -1,11 +1,10 @@
 <component name="ProjectRunConfigurationManager">
-    <configuration default="false" name="Lab3.7 Strategy" type="Application" factoryName="Application">
-        <option name="MAIN_CLASS_NAME" value="StrategyMain"/>
-        <module name="lab-3-7-strategy"/>
-        <option name="PROGRAM_PARAMETERS"
-                value="&quot;./lab-3/lab-3-7-strategy/resources/data.xml&quot; &quot;./lab-3/lab-3-7-strategy/resources/dataOut.xml&quot;"/>
-        <method v="2">
-            <option name="Make" enabled="true"/>
-        </method>
-    </configuration>
+  <configuration default="false" name="Lab3.7 Strategy" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="StrategyMain" />
+    <module name="lab-3-7-strategy" />
+    <option name="PROGRAM_PARAMETERS" value="lab-3/lab-3-7-strategy/resources/data.xml out/new-data-sax.xml out/new-data-dom.xml" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
 </component>

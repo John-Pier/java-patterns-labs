@@ -2,9 +2,12 @@ import models.*;
 
 public class StrategyMain {
     public static void main(String[] args) {
-        var path = "lab-3/lab-3-7-strategy/resources/data.xml";
-        var newPathOne = "out/new-data-sax.xml";
-        var newPathTwo = "out/new-data-dom.xml";
+        if (args.length < 3) {
+            return;
+        }
+        var path = args[0];
+        var newPathOne = args[1];
+        var newPathTwo = args[2];
 
         var domAnalyzer = new DomAnalyzer(path);
         var saxAnalyzer = new SaxAnalyzer(path);

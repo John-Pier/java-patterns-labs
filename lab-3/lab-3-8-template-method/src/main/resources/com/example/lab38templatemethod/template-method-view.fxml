@@ -1,16 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.lab38templatemethod.TemplateMethodController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<AnchorPane prefHeight="450.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.lab38templatemethod.TemplateMethodController">
+    <children>
+        <SplitPane dividerPositions="0.1595174262734584" prefHeight="160.0" prefWidth="200.0"
+                   AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                   AnchorPane.topAnchor="0.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="447.0" prefWidth="133.0">
+                    <children>
+                        <Button contentDisplay="TOP" defaultButton="true" layoutX="6.0" layoutY="14.0"
+                                onAction="#onStartButtonClick" prefHeight="25.0" prefWidth="62.0" text="Старт"/>
+                        <Button cancelButton="true" contentDisplay="TOP" layoutX="6.0" layoutY="47.0"
+                                onAction="#onStopButtonClick" prefHeight="25.0" prefWidth="62.0" text="Стоп"/>
+                    </children>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                    <children>
+                        <Pane fx:id="mainPane" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0"
+                              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <Circle fx:id="circle" fill="DODGERBLUE" layoutX="26.0" layoutY="26.0" radius="12.0"
+                                        stroke="BLACK" strokeType="INSIDE"/>
+                                <Rectangle fx:id="square" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="24.0"
+                                           layoutX="14.0" layoutY="46.0" stroke="BLACK" strokeType="INSIDE"
+                                           width="24.0"/>
+                                <Pane fx:id="polygon" layoutX="16.0" layoutY="80.0" prefHeight="43.0" prefWidth="44.0"
+                                      style="-fx-border-width: 1; -fx-border-color: BLACK;">
+                                    <children>
+                                        <Polygon fill="DODGERBLUE" layoutX="71.0" layoutY="47.0"
+                                                 points="-67.33332824707031, -26.333328247070312, -48.33332824707031, -15.333328247070312, -48.33332824707031, -33.33332824707031"
+                                                 stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0"/>
+                                        <Polygon fill="DODGERBLUE" layoutX="81.0" layoutY="38.0"
+                                                 points="-67.33332824707031, -26.333328247070312, -48.33332824707031, -15.333328247070312, -48.33332824707031, -33.33332824707031"
+                                                 rotate="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0"/>
+                                        <Polygon fill="DODGERBLUE" layoutX="80.0" layoutY="57.0"
+                                                 points="-67.33332824707031, -26.333328247070312, -48.33332824707031, -15.333328247070312, -48.33332824707031, -33.33332824707031"
+                                                 rotate="-90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0"/>
+                                        <Polygon fill="DODGERBLUE" layoutX="91.0" layoutY="48.0"
+                                                 points="-67.33332824707031, -26.333328247070312, -48.33332824707031, -15.333328247070312, -48.33332824707031, -33.33332824707031"
+                                                 rotate="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0"/>
+                                    </children>
+                                </Pane>
+                            </children>
+                        </Pane>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </children>
+</AnchorPane>
