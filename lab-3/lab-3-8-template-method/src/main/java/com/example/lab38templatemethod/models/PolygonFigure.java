@@ -2,19 +2,22 @@ package com.example.lab38templatemethod.models;
 
 import javafx.animation.AnimationTimer;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.*;
 
 import java.util.Random;
 
-public class SquareFigure extends AbstractFigure {
+public class PolygonFigure extends AbstractFigure {
     private AnimationTimer timer;
 
-    public SquareFigure(Pane mainPane) {
-        super(new Rectangle(24, 24), mainPane);
+    public PolygonFigure(Pane mainPane) {
+        super(new Polygon(12, 15, 16, 32, 6, 50, 54, 30), mainPane);
         var random = new Random();
-        ((Rectangle) element).setFill(color);
-        this.element.setLayoutX(random.nextInt(20) + 5);
-        this.element.setLayoutY(random.nextInt(15) + 5);
+        ((Shape) element).setFill(color);
+        this.element.setLayoutX(random.nextInt(60) + 15);
+        this.element.setLayoutY(random.nextInt(50) + 15);
+        if (random.nextDouble() > 0.5) {
+            speedX = -speedX;
+        }
     }
 
     @Override
@@ -22,7 +25,8 @@ public class SquareFigure extends AbstractFigure {
         timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-                next(); // TODO: нет контроля за скоростью
+                next();
+//                element.setRotate((element.getRotate() + 1) % 360);
             }
         };
 
