@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Lab4.2 Dao" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="DaoMain" />
+    <module name="lab-4-2-dao" />
+    <option name="PROGRAM_PARAMETERS" value="out/dao1.b out/dao2.txt" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

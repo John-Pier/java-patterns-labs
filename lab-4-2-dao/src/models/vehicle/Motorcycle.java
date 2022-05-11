@@ -1,6 +1,6 @@
 package models.vehicle;
 
-import models.visitor.Visitor;
+import java.io.Serializable;
 
 public class Motorcycle implements Vehicle {
 
@@ -158,11 +158,11 @@ public class Motorcycle implements Vehicle {
     }
 
     @Override
-    public void accept(Visitor visitor) {
-        visitor.visit(this);
+    public String getVehicleClassName() {
+        return Motorcycle.class.getSimpleName();
     }
 
-    private class Model {
+    private class Model implements Serializable {
 
         private String name = null;
         private double price = Double.NaN;
