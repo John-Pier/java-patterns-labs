@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class TemplateMethodController {
     @FXML
     private Pane mainPane;
-
     private final ArrayList<AbstractFigure> figures = new ArrayList<>();
 
     @FXML

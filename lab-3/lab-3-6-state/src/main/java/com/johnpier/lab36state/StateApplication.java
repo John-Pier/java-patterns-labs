@@ -18,7 +18,6 @@ public class StateApplication extends Application {
         stage.setScene(scene);
         stage.setOnShown(e -> controller.init());
         stage.show();
-
     }
 
     public static void main(String[] args) {

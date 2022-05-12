@@ -1,5 +1,6 @@
 package com.example.lab38templatemethod.models;
 
+import javafx.animation.AnimationTimer;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -17,6 +18,8 @@ public abstract class AbstractFigure {
 
     protected Color color;
 
+    protected AnimationTimer timer;
+
     public AbstractFigure(Node element, Pane mainPane) {
         this.element = element;
         this.mainPane = mainPane;
@@ -26,9 +29,30 @@ public abstract class AbstractFigure {
 
         Random random = new Random();
         color = Color.color(random.nextDouble(), random.nextDouble(), random.nextDouble());
+
+        this.setupElement();
     }
 
-    public void next() {
+
+    protected abstract void setupElement();
+
+    public Node getElement() {
+        return element;
+    }
+
+    public void start() {
+        timer = new AnimationTimer() {
+            @Override
+            public void handle(long now) {
+                next();
+                afterNext(now);
+            }
+        };
+
+        timer.start();
+    }
+
+    protected void next() {
         this.correctSpeed();
         this.element.setLayoutX(this.element.getLayoutX() + speedX);
         this.element.setLayoutY(this.element.getLayoutY() + speedY);
@@ -44,11 +68,11 @@ public abstract class AbstractFigure {
         }
     }
 
-    public Node getElement() {
-        return element;
+    protected void afterNext(long now) {
     }
 
-    public abstract void start();
-
-    public abstract void stop();
+    public void stop() {
+        this.element.setVisible(false);
+        timer.stop();
+    }
 }

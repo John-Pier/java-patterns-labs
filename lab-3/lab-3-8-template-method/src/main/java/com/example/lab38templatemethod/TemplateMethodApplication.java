@@ -17,7 +17,6 @@ public class TemplateMethodApplication extends Application {
         stage.setTitle("Template Method App");
         stage.setScene(scene);
         stage.show();
-//        controller.run();
         stage.setOnCloseRequest(e -> controller.onClose());
     }
 
