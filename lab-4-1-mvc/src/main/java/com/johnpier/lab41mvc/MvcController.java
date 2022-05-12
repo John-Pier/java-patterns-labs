@@ -49,13 +49,13 @@ public class MvcController {
 
                 row.setX(value);
 
-                if (rowNumber >= rows.size()) {
-                    rows.add(row);
+                if (rowNumber >= tableView.getItems().size()) {
+                    tableView.getItems().add(row);
                 }
 
-                tableView.setItems(rows);
+//                tableView.setItems(rows);
             } else {
-                rows.remove(row);
+                tableView.getItems().remove(row);
             }
         });
     }
