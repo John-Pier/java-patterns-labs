@@ -10,8 +10,8 @@
              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <Tab closable="false" text="График">
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                <LineChart AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-                           AnchorPane.topAnchor="0.0">
+                <LineChart fx:id="lineChart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                           AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <xAxis>
                         <NumberAxis label="X" lowerBound="-50.0" side="BOTTOM" tickLabelFill="#1f8450"
                                     upperBound="50.0"/>
@@ -28,8 +28,7 @@
                            tableMenuButtonVisible="true" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="0.0"
                            AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
-                        <TableColumn editable="true" maxWidth="300.0" minWidth="20.0" prefWidth="75.0" text="X"
-                                     fx:id="xColumn"/>
+                        <TableColumn maxWidth="300.0" minWidth="20.0" prefWidth="75.0" text="X" fx:id="xColumn"/>
                         <TableColumn fx:id="yColumn" editable="false" maxWidth="300.0" minWidth="20.0" prefWidth="75.0"
                                      sortable="false" text="Y"/>
                     </columns>

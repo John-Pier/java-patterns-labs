@@ -4,11 +4,10 @@ import com.johnpier.lab41mvc.models.CubicFunction;
 import javafx.beans.property.*;
 import javafx.collections.*;
 import javafx.fxml.FXML;
+import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.*;
 import javafx.util.converter.*;
-
-import java.text.Format;
 
 public class MvcController {
     @FXML
@@ -17,16 +16,22 @@ public class MvcController {
     private TableColumn<Row, Double> xColumn;
     @FXML
     private TableColumn<Row, Double> yColumn;
+    @FXML
+    private LineChart<Double, Double> lineChart;
 
     private final ObservableList<Row> rows = FXCollections.observableArrayList(
-            new Row(0, 3),
-            new Row(1, 4),
-            new Row(2, 5)
+            new Row(0),
+            new Row(-5),
+            new Row(-5.1),
+            new Row(-3),
+            new Row(1.9),
+            new Row(1.5),
+            new Row(1)
     );
 
     @FXML
     protected void onAddCell() {
-        tableView.getItems().add(new Row(0, 0));
+        tableView.getItems().add(new Row(0));
     }
 
     public void initTableValues() {
@@ -36,7 +41,19 @@ public class MvcController {
         xColumn.setCellValueFactory(new PropertyValueFactory<>(rows.get(0).getXProperty().getName()));
         yColumn.setCellValueFactory(new PropertyValueFactory<>(rows.get(0).getYProperty().getName()));
 
-        xColumn.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        var convertor = new DoubleStringConverter() {
+            @Override
+            public Double fromString(String value) {
+                try {
+                    return super.fromString(value);
+                } catch (Exception ignored) {
+                }
+                return null;
+            }
+        };
+
+        xColumn.setCellFactory(TextFieldTableCell.forTableColumn(convertor));
+        yColumn.setCellFactory(TextFieldTableCell.forTableColumn(convertor));
 
         xColumn.setOnEditCommit((TableColumn.CellEditEvent<Row, Double> editEvent) -> {
             TablePosition<Row, Double> position = editEvent.getTablePosition();
@@ -46,27 +63,36 @@ public class MvcController {
             var row = tableView.getItems().get(rowNumber);
 
             if (value != null && !Double.isNaN(value)) {
-
                 row.setX(value);
-
-                if (rowNumber >= tableView.getItems().size()) {
-                    tableView.getItems().add(row);
-                }
-
-//                tableView.setItems(rows);
             } else {
                 tableView.getItems().remove(row);
             }
+
+            this.updateChart();
         });
+        this.updateChart();
+    }
+
+    public void initChart() {
+        XYChart.Series<Double, Double> series = new XYChart.Series<>();
+        series.setName("Cubic fn");
+        lineChart.getData().add(series);
+    }
+
+    private void updateChart() {
+        XYChart.Series<Double, Double> series = lineChart.getData().get(0);
+        series.getData().clear();
+        for (Row row : tableView.getItems()) {
+            series.getData().add(new XYChart.Data<>(row.getX(), row.getY()));
+        }
     }
 
     public static class Row {
         private DoubleProperty xProperty;
         private DoubleProperty yProperty;
 
-        public Row(double x, double y) {
+        public Row(double x) {
             setX(x);
-            setY(y);
         }
 
         public DoubleProperty getXProperty() {
