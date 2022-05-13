@@ -20,12 +20,11 @@ public class SerializedVehicleDAO extends AbstractDataAccessObject {
 
     @Override
     public Vehicle readVehicle() {
-        Vehicle vehicle = null;
         try (var stream = new ObjectInputStream(new FileInputStream(pathToFile))) {
             return (Vehicle) stream.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return vehicle;
+        return null;
     }
 }
