@@ -17,8 +17,7 @@ public class MvcApplication extends Application {
         stage.setTitle("MvcApplication");
         stage.setScene(scene);
         stage.show();
-        controller.initChart();
-        controller.initTableValues();
+        controller.init();
     }
 
     public static void main(String[] args) {

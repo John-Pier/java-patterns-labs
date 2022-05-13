@@ -1,8 +1,6 @@
 package com.johnpier.lab41mvc;
 
-import com.johnpier.lab41mvc.models.CubicFunction;
-import javafx.beans.property.*;
-import javafx.collections.*;
+import com.johnpier.lab41mvc.models.*;
 import javafx.fxml.FXML;
 import javafx.scene.chart.*;
 import javafx.scene.control.*;
@@ -19,27 +17,32 @@ public class MvcController {
     @FXML
     private LineChart<Double, Double> lineChart;
 
-    private final ObservableList<Row> rows = FXCollections.observableArrayList(
-            new Row(0),
-            new Row(-5),
-            new Row(-5.1),
-            new Row(-3),
-            new Row(1.9),
-            new Row(1.5),
-            new Row(1)
-    );
+    private AppModel appModel;
 
     @FXML
     protected void onAddCell() {
         tableView.getItems().add(new Row(0));
     }
 
-    public void initTableValues() {
-        tableView.setItems(rows);
+    public void init() {
+        appModel = new AppModel(this.tableView);
+        initChart();
+        initTableValues();
+    }
+
+    private void initChart() {
+        XYChart.Series<Double, Double> series = new XYChart.Series<>();
+        series.setName("Cubic fn");
+        lineChart.getData().add(series);
+    }
+
+    private void initTableValues() {
         xColumn.setEditable(true);
 
-        xColumn.setCellValueFactory(new PropertyValueFactory<>(rows.get(0).getXProperty().getName()));
-        yColumn.setCellValueFactory(new PropertyValueFactory<>(rows.get(0).getYProperty().getName()));
+        this.appModel.setInitialRows();
+
+        xColumn.setCellValueFactory(new PropertyValueFactory<>(appModel.getRows().get(0).xProperty().getName()));
+        yColumn.setCellValueFactory(new PropertyValueFactory<>(appModel.getRows().get(0).yProperty().getName()));
 
         var convertor = new DoubleStringConverter() {
             @Override
@@ -60,12 +63,12 @@ public class MvcController {
 
             var value = editEvent.getNewValue();
             var rowNumber = position.getRow();
-            var row = tableView.getItems().get(rowNumber);
+            var row = appModel.getRows().get(rowNumber);
 
             if (value != null && !Double.isNaN(value)) {
                 row.setX(value);
             } else {
-                tableView.getItems().remove(row);
+                appModel.getRows().remove(row);
             }
 
             this.updateChart();
@@ -73,61 +76,9 @@ public class MvcController {
         this.updateChart();
     }
 
-    public void initChart() {
-        XYChart.Series<Double, Double> series = new XYChart.Series<>();
-        series.setName("Cubic fn");
-        lineChart.getData().add(series);
-    }
-
     private void updateChart() {
         XYChart.Series<Double, Double> series = lineChart.getData().get(0);
         series.getData().clear();
-        for (Row row : tableView.getItems()) {
-            series.getData().add(new XYChart.Data<>(row.getX(), row.getY()));
-        }
-    }
-
-    public static class Row {
-        private DoubleProperty xProperty;
-        private DoubleProperty yProperty;
-
-        public Row(double x) {
-            setX(x);
-        }
-
-        public DoubleProperty getXProperty() {
-            if (xProperty == null) {
-                xProperty = new SimpleDoubleProperty(this, "x");
-            }
-            return xProperty;
-        }
-
-        public DoubleProperty getYProperty() {
-            if (yProperty == null) {
-                yProperty = new SimpleDoubleProperty(this, "y");
-            }
-            return yProperty;
-        }
-
-        public double getX() {
-            return getXProperty().doubleValue();
-        }
-
-        public void setX(double x) {
-            getXProperty().setValue(x);
-            calculateY();
-        }
-
-        public double getY() {
-            return getYProperty().doubleValue();
-        }
-
-        public void setY(double y) {
-            getYProperty().setValue(y);
-        }
-
-        private void calculateY() {
-            setY(CubicFunction.getInstance().calculateY(getX()));
-        }
+        series.getData().addAll(appModel.getChartData());
     }
 }

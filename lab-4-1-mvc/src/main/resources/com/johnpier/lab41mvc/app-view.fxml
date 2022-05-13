@@ -2,6 +2,7 @@
 
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
 <AnchorPane prefHeight="450.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
@@ -10,8 +11,8 @@
              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <Tab closable="false" text="График">
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                <LineChart fx:id="lineChart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                           AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <LineChart fx:id="lineChart" prefHeight="463.0" prefWidth="500.0" AnchorPane.bottomAnchor="48.0"
+                           AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <xAxis>
                         <NumberAxis label="X" lowerBound="-50.0" side="BOTTOM" tickLabelFill="#1f8450"
                                     upperBound="50.0"/>
@@ -20,6 +21,12 @@
                         <NumberAxis label="Y" lowerBound="-30.0" side="LEFT" tickLabelFill="#fd1a1a" upperBound="70.0"/>
                     </yAxis>
                 </LineChart>
+                <ImageView fitHeight="42.0" fitWidth="127.0" layoutY="372.0" pickOnBounds="true" preserveRatio="true"
+                           AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+                    <image>
+                        <Image url="@img/img.png"/>
+                    </image>
+                </ImageView>
             </AnchorPane>
         </Tab>
         <Tab closable="false" text="Таблица значений">
