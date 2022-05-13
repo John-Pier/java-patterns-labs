@@ -7,7 +7,6 @@ import javafx.scene.control.TableView;
 import java.util.*;
 
 public class AppModel {
-
     private final TableView<Row> tableView;
 
     public AppModel(TableView<Row> tableView) {

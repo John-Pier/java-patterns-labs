@@ -73,6 +73,8 @@ public class MvcController {
 
             this.updateChart();
         });
+        yColumn.setOnEditCommit(editEvent -> {
+        });
         this.updateChart();
     }
 
