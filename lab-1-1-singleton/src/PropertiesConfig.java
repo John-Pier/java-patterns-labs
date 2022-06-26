@@ -3,7 +3,7 @@ import java.util.Properties;
 
 public class PropertiesConfig {
 
-    private static PropertiesConfig propertiesConfig;
+    private static volatile PropertiesConfig propertiesConfig;
     private final Properties properties;
 
     private PropertiesConfig(String path) throws IOException {
@@ -11,17 +11,15 @@ public class PropertiesConfig {
         properties.load(new FileReader(path));
     }
 
-    public synchronized static PropertiesConfig getInstance(String initialPath) throws IOException{
-        if (propertiesConfig == null)
-        {
+    public synchronized static PropertiesConfig getInstance(String initialPath) throws IOException {
+        if (propertiesConfig == null) {
             propertiesConfig = new PropertiesConfig(initialPath);
         }
         return propertiesConfig;
     }
 
-    public synchronized static PropertiesConfig getInstance() throws IOException{
-        if (propertiesConfig == null)
-        {
+    public synchronized static PropertiesConfig getInstance() throws IOException {
+        if (propertiesConfig == null) {
             propertiesConfig = new PropertiesConfig("lab-1-1-singleton/src/config.properties");
         }
         return propertiesConfig;

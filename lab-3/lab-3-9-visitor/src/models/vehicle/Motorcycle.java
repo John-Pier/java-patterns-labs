@@ -6,7 +6,7 @@ public class Motorcycle implements Vehicle {
 
     private String motoBrand;
     private int size;
-    private Model head = new Model();
+    private final Model head = new Model();
 
     {
         head.prev = head;
